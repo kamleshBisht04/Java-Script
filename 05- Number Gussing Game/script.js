@@ -37,6 +37,7 @@ document.querySelector('.check').addEventListener('click',function(){
         highscore = score;
         document.querySelector('.highscore').textContent = highscore; 
     }
+    
       // setting if match not Found
   }else if(guess !== secretNumber){
     if(score >1){
@@ -45,11 +46,11 @@ document.querySelector('.check').addEventListener('click',function(){
       document.querySelector('.score').textContent= score;
       
     }
-  }else{
+  else{
     dispalyMessage('💥 You lost game !! Game over ');
     document.querySelector('.score').textContent =0;
   }
-
+  }
 });
 
 // Again button game logic
