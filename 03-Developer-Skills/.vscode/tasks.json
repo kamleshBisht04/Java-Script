@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "Live Preview",
+      "workspacePath": "c:\\Users\\91789\\Desktop\\java script\\complete-javascript-course-master\\03-Developer-Skills",
+      "problemMatcher": [],
+      "label": "Live Preview: Run Server"
+    }
+  ]
+}
