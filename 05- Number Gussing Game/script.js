@@ -1,19 +1,6 @@
 'using strict';
 
-/*
-console.log( document.querySelector('.message').textContent);
 
-console.log(document.querySelector('.message').textContent = 'Correct Number');
-
-document.querySelector('.score').textContent=13;
-
-document.querySelector('.highscore').textContent = 10;
-
-document.querySelector('.number').textContent=23;
-
-document.querySelector('.guess').value=25;
-console.log(document.querySelector('.guess').value);
-*/
 //  game logic 
 
 let highscore = 0;
@@ -79,6 +66,21 @@ document.querySelector('.guess').value = ' ';
 
 });
 
+
+/*
+console.log( document.querySelector('.message').textContent);
+
+console.log(document.querySelector('.message').textContent = 'Correct Number');
+
+document.querySelector('.score').textContent=13;
+
+document.querySelector('.highscore').textContent = 10;
+
+document.querySelector('.number').textContent=23;
+
+document.querySelector('.guess').value=25;
+console.log(document.querySelector('.guess').value);
+*/
 
 
 
