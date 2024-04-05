@@ -13,8 +13,8 @@ html{
 
 body{
   color: white;
-  background-color: black;
-  /* background-color: rgb(5, 167, 5); */
+  background-color: #000000;
+  /* background-color: #70e660; */
   height: 90vh;
 }
 header{
@@ -48,14 +48,18 @@ h1{
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 52%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #07f8e8;
+  
+  
 }
 
 .number{
-    background-color: white;
-    width: 79px;
+    background-color: lemonchiffon;
+    border-radius: 10px;
+    width: 81px;
     height: 75px;
     position: absolute;
     top: 97%;
@@ -87,9 +91,11 @@ h1{
 width: auto;
 padding:10px 20px;
 font-size: 2.5rem;
-border-radius: 10px;
+border-radius: 20px;
 position: absolute;
 margin-left: 35px;
+border: 5px solid rgb(144, 144, 143);
+cursor: pointer;
  
 }
 
@@ -98,9 +104,10 @@ margin-left: 35px;
   top: 100px;
 }
 
-.Check{
+.check{
   left: 19%;
   top: 470px;
+  
   
 }
 
@@ -124,7 +131,7 @@ margin-left: 35px;
 }
 
 .btn:hover{
-  background-color: lemonchiffon
+  background-color: lemonchiffon;
 }
 
 .result{
