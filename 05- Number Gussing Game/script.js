@@ -6,6 +6,7 @@
 let highscore = 0;
 let score = 20;
 let secretNumber = Math.round(Math.random() * 20);
+// document.querySelector('.number').textContent = secretNumber;
 
 // function for pass the message 
 
@@ -56,7 +57,7 @@ document.querySelector('.check').addEventListener('click',function(){
 // Again button game logic
 
 document.querySelector('.Again').addEventListener('click',function(){
-  score =20;
+score =20;
 document.querySelector('body').style.backgroundColor ='black';
 document.querySelector('.score').textContent=score;
 
