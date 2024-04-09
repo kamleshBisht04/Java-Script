@@ -15,35 +15,38 @@ body {
   height: 100vh;
   font-size: 1.8rem;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  background: linear-gradient(to top left, #2fcb99, #7dd56f);
+  background: linear-gradient(-45deg, #2bd59f, #73e373, #79ea75);
+  animation: gradient 10s ease infinite;
 }
 
 .show-modal {
-  font-weight: 800;
+  font-weight: 900;
   width: 20rem;
   height: 5rem;
   color: rgb(0, 0, 0);
   border: 0;
   border-radius: 20px;
   margin-top: 10rem;
-  margin-left: 10rem;
-  scroll-behavior: smooth;
+  margin-left: 8rem;
+  cursor: pointer;
 }
 
 .hidden {
+  display: none;
 }
 
-.model-close {
+.modal-close {
   position: absolute;
-  left: 95%;
-  font-size: 2.8rem;
-  height: 2.8rem;
-  width: 2.8rem;
-  margin: 0.2rem;
-  top: 4px;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4.5rem;
+  margin: 0.1rem;
   border: none;
   color: red;
+  cursor: pointer;
+  background: none;
 }
 
 h1 {
@@ -57,9 +60,6 @@ p {
 
 /* Class to modal work */
 
-.modal-section {
-}
-
 .modal {
   position: absolute;
   top: 30%;
@@ -72,4 +72,15 @@ p {
   border-radius: 8px;
   box-shadow: 0 5rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  z-index: 5;
 }
