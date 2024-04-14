@@ -9,7 +9,6 @@
 }
 
 body {
-
   height: 100vh;
   width: 100%;
   display: flex;
@@ -38,6 +37,7 @@ input{
   cursor: pointer;
   color: #ffffff;
   outline: none;
+  
   
 }
 
