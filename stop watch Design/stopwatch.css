@@ -21,7 +21,7 @@ body{
 }
 
 .timerDisplay{
-   width: 350px;
+   width: 400px;
    height: 100px;
    border-radius: 25px;
    padding: 0px 0px 0px 30px;
@@ -32,8 +32,22 @@ body{
    font-size: 60px;
    letter-spacing: 2px;
    margin :50px;
-   margin-left: 15rem;
+   margin-left: 13rem;
 }
+
+.unitDisplay{
+  position: relative;
+  bottom: 5rem;
+  display: inline-block;
+  margin-left: 14rem;
+}
+span{
+  color: rgba(255, 9, 9, 0.982);
+  margin: 0px 49px ;
+  font-weight: 700;
+  
+}
+
 
 h1{
   letter-spacing: 7px;
@@ -74,7 +88,7 @@ button{
 }
 
 .btn-hover:hover{
-  background-color: rgb(121, 222, 239);
+  background-color: rgb(12, 240, 183);
   color: #ffffff;
 }
 

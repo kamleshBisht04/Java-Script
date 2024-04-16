@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop watch</title>
-  <link rel="stylesheet" href="stopwatch.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop watch</title>
+    <link rel="stylesheet" href="stopwatch.css" />
+  </head>
+  <body>
     <div class="container">
       <div class="stopwatch">
-        <h1>STOP WATCH LETS COUNT YOUR MOMENT </h1>
-        <div class="timerDisplay">00.00.00</div>
-        <!-- button -->
+        <h1>STOP WATCH LETS COUNT YOUR MOMENT</h1>
+        <div class="timerDisplay">00 : 00 : 00</div>
+        <div class="unitDisplay"><span>Min</span><span>Sec</span><span>Ms</span>
         
+        </div>
+        
+        <!-- button -->
+
         <div class="btn-container">
-        <button class="btn-stop btn-hover">Stop</button>
-        <button class="btn-start btn-hover">Start</button>
-        <button class="btn-reset btn-hover">Reset</button>
+          <button id="stop" class="btn-stop btn-hover">Stop</button>
+          <button id="start" class="btn-start btn-hover">Start</button>
+          <button id="reset" class="btn-reset btn-hover">Reset</button>
         </div>
       </div>
     </div>
 
-
-  <script src="stopwatch.js"></script>
-</body>
+    <script src="stopwatch.js"></script>
+  </body>
 </html>
