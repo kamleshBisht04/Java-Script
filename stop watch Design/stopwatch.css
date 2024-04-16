@@ -21,31 +21,34 @@ body{
 }
 
 .timerDisplay{
-   width: 400px;
-   height: 100px;
+   width: 500px;
+   height: 110px;
    border-radius: 25px;
-   padding: 0px 0px 0px 30px;
+   padding: 0px 0px 0px 10px;
    background: transparent;
-   background-color: aliceblue;
-   border: 3px solid rgb(137, 247, 46);
+   background-color: rgb(255, 255, 255);
+   border: 5px solid rgb(4, 248, 248);
+   box-shadow: -3px -2px 15px 15px rgba(245, 246, 247, 0.171) ;
    color: black;
    font-size: 60px;
    letter-spacing: 2px;
    margin :50px;
-   margin-left: 13rem;
+   margin-left: 11rem;
+   
 }
 
 .unitDisplay{
   position: relative;
   bottom: 5rem;
   display: inline-block;
-  margin-left: 14rem;
+  margin-left: 9.9rem;
 }
 span{
-  color: rgba(255, 9, 9, 0.982);
+  color: rgba(227, 28, 245, 0.979);
   margin: 0px 49px ;
   font-weight: 700;
-  
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
 
@@ -62,6 +65,7 @@ button{
     border-radius: 10px;
     display: inline-block;
     margin-left: 50px;
+    cursor: pointer;
 
 }
 .btn-container{

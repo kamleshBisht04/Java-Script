@@ -1,115 +1,67 @@
 'use strict';
 
-let stopBtn = document.getElementById('stop');
-let startBtn = document.getElementById('start');
-let resetBtn = document.getElementById('reset');
+
 let display = document.querySelector('.timerDisplay');
+let startBtn= document.getElementById('start')
+let stopBtn= document.getElementById('stop')
+let resetBtn= document.getElementById('reset')
 
-let msec =0;
-let secs =0;
-let mins =0;
+let msec=0;
+let sec=0;
+let min=0;
+let hour=0;
 
-let timerId = null;
+let timerId =null;
+
+// start button 
 
 startBtn.addEventListener('click',function(){
-  if(timerId != null){
-    clearInterval(timerId);
-  }
-   timerId = setInterval(startTimer,10);
+ if(timerId!=null){
+  clearInterval(timerId);
+ }
+ timerId = setInterval(startTime,10);
 });
 
+// stop button
+
 stopBtn.addEventListener('click',function(){
-  clearInterval(timerId);
+   clearInterval(timerId);
 });
+
+// reset button
 
 resetBtn.addEventListener('click', function () {
   clearInterval(timerId);
-  display.innerHTML = `00 : 00 : 00`;
-  mins=secs=msec=0;
+  display.innerHTML = `00 : 00 : 00 : 00`;
+  msec=sec=min=hour =0;
 });
 
 
-function startTimer(){
-     msec++;
-     if(msec===100){
+//  function for start button
+
+const startTime = function(){
+    msec++;
+    if(msec===100){
       msec=0;
-      secs++;
-      if(secs===60){
-        secs=0;
-        mins++;
+      sec++;
+      if(sec===60){
+        sec=0;
+        min++;
+        if(min===60){
+          min=0;
+          hour++;
+        }
       }
-     }
-     let msecString = msec < 10 ? `0${msec}`: msec;
-     let secString = secs <10 ? `0${secs}` : secs;
-     let minString = mins<10 ? `0${mins}` :mins;
-     
-  display.innerHTML=`${minString} : ${secString} : ${msecString}`
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+   
+  let miliString = msec<10 ? `0${msec}`:msec;
+  let secString = sec<10 ? `0${sec}`:sec;
+  let minString = min<10 ? `0${min}`:min;
+  let hourString = hour<10 ? `0${hour}`:hour;
+  
+ display.innerHTML = `${hourString} : ${minString} : ${secString} : ${miliString}`
+
+};
 
 
 
