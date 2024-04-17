@@ -10,28 +10,29 @@
     <div class="container">
       <div class="form-box">
         <header>
-          <h1>LogIn</h1>
+          <h1 class="title">LogIn</h1>
         </header>
         <form action="">
-          <input type="text" placeholder="Name" />
+          <input class="nameFeild" type="text" placeholder="Name" />
           <input type="email" placeholder="Email" />
-          <input type="password" placeholder="password" />
+          <input type="password" placeholder="Enter password" />
+          <input  class="verify-password" placeholder="Re-Enter password" />
           <a class="forget-password" href="">Forget password</a>
-          <input type="button" value="LogIn" />
+          <input id="logInBtn" type="button" value="LogIn" />
 
           <!-- logo image -->
           <div class="links">
             <a href="#"
               ><img src="./images/facebook.png" alt="facebook link"
             /></a>
-            <a href="#"
+            <a href="http://twitter.com"
               ><img src="./images/twitter.png" alt="twitter link"
             /></a>
             <a href="#"
               ><img src="./images/download.png" alt="Google link"
             /></a>
           </div>
-          <p class="signUp">Not a Member ? <a href="#"> Sign Up</a></p>
+          <p class="signUp">Not a Member ? <a id="signUpBtn" href="#"> Sign Up</a></p>
         </form>
       </div>
     </div>
