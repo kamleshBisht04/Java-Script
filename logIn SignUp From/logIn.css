@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+} 
+
+.container{
+  width: 100%;
+  height: 100vh;
+  background:linear-gradient(to right bottom, 
+  #ebf4f5,#acc8f0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box{
+  width: 50%;
+  max-width: 420px;
+  background-color: #ffffff;
+  padding: 25px 28px;
+  border-radius: 8px;
+  margin-inline: 20px;
+  
+}
+
+header h1{
+  text-align: center;
+  color: #2171e1ee;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+
+}
+
+input{
+  width: 100%;
+  padding: 18px 16px;
+  border: none;
+  outline: 0;
+  border-radius: 4px;
+  background-color: #eaecef56;
+  margin: 15px 0px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.forget-password{
+  text-decoration: none;
+  color:#4f4d4edf;
+  font-size: 14px;
+  margin-inline: 6rem;
+  
+
+}
+
+.forget-password:hover{
+  color: #095ef2;
+}
+
+input[type="button"]{
+ 
+  width: 80%;
+  height: 3rem;
+  padding: 10px;
+  margin-inline: 2rem;
+  margin-block: 25px;
+  background-color:hsla(258, 58%, 57%, 0.997) ;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: 1s;
+}
+
+input[type="button"]:hover{
+  background-color:#4484f2;
+}
+
+.links{
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+.links a img {
+  max-height: 40px;
+  margin-block: 1rem;
+  margin-inline: 10px;
+ 
+}
+
+.signUp{
+  display: flex;
+  justify-content: center;
+  
+}
+
+p > a{
+  text-decoration: none;
+  margin-left: 0.3rem;
+  color: #6382f2;
+  margin-bottom: 10px;
+}
+
+p > a:hover{
+  color: #0310fd;
+}
