@@ -71,12 +71,17 @@ input{
   background-color: rgba(226, 220, 220, 0.553);
   border: none;
   outline: 0;
-
+  transition: 5sec;
+  
 }
 
-.signUp{
+.signUpLine{
   margin-block: 2rem;
   margin-left: 3rem;
+  
+}
+p{
+  margin-block: 2rem;
 }
 
 a{
@@ -87,11 +92,11 @@ a{
 
 .btn-container{
   display: flex;
-  /* padding: 10px; */
+
 }
 
 .links>a >img {
- width: 35px;
+ width: 40px;
  margin-block: 2rem;
  margin-left: 1rem;
 
@@ -102,18 +107,21 @@ a{
   align-items: center;
 }
 
-.btn{
+.btn-change{
   width: 100%;
   color: #fbfafa;
   cursor: pointer;
   transition: 1ms;
-  background-color: #1b2df7;
+  background-color: #024fdf;
+  font-weight: 700;
 }
 
-.sign{
-  background-color: #d0caca99;
-  color: #ffffff;
+.disable{
+ background-color: #9c9b9b;
+ color: #ffffff;
 }
+
+
 
 .nameFeild{
   display: none;
