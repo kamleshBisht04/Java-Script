@@ -13,48 +13,48 @@
   <body>
     <div class="container">
       <div class="from-box">
-        <h1 class="title">LogIn</h1>
+
+        <h1 class="title">SignUp</h1>
         <div class="underline"></div>
-        <from  action="#">
-
-          <div class="input-group ">
-            <div class="input-field nameFeildIcan ">
-             <i><img src="./images/address-book-solid.svg" alt=""></i>
-            <input class="nameFeild " type="text" placeholder="Name">
-          </div><!--input-feild ends-->
-
-          <div class="input-field">
-            <i><img src="./images/envelope-solid.svg" alt=""></i>
-            <input  type="email" placeholder="Email">
-          </div><!--input-feild ends-->
+        <from action ="">
+         <div class="input-group">
+          <div class="input-field nameFeild">
+               <i><img src="./images/user-solid.svg" ></i>
+              <input  type="text" placeholder="Name">
+          </div><!-- Input field End-->
 
           <div class="input-field">
-            <i><img  src="./images/key-solid.svg" alt=""></i>
-            <input class="password" type="password" placeholder="password">
-          </div><!--input-feild ends-->
+              <!-- <i class="fa-solid fa-envelope"></i> -->
+              <i><img src="./images/envelope-solid.svg" ></i>
+              <input  type="email" placeholder="Email">
+          </div><!-- Input field End-->
 
-          <p class="text">Password Suggestions<a href="#">Click Here</p><!-- paragraph end--></a>
+          <div class="input-field">
+             <i><img src="./images/lock-solid.svg " ></i>
+              <input type="password" placeholder="password">
+          </div><!-- Input field End-->
 
-          <div class="button-container">
-            <button class="LogInBtn btn-clr" type="button">LogIn</button>
-            <button class="signUpBtn btn-clr disable" type="button">Sign</button>
+          <p><span  class="text">Password Suggestions ?</span> <a href="">Click Here!</a></p>
+         </div><!-- input- Group end-->
+          <div class="button-feild">
+            <button id="buttonsignUp" type="button">Sign Up</button>
+            <button id="buttonsignIn" class="disable" type="button ">LogIn</button>
+          </div><!--Button Feild end-->
+          <div class="socialMedia">
+            <a href="http://gmail.com"><img src="./images/download.png" alt="Google-link"></a>
+            <a href="http://facebook.com"><img src="./images/facebook.png" alt="facebook"></a>
+            <a href="http://twitter.com"><img src="./images/twitter.png" alt="twitter-link"></a>
           </div>
 
-           <div class="media-link">
-            <a href=""><img src="./images/download.png" alt="gmail"></a>
-            <a href=""><img src="./images/facebook.png" alt="facebook"></a>
-            <a href=""><img src="./images/twitter.png" alt="twitter"></a>
-           </div>
+        </from><!--From end-->
 
-          </div><!--input-group ends-->
+      </div><!--End from-box-->
 
 
+      
 
-
-
-        </from><!--From ends -->
-      </div><!-- From-box end-->
-    </div><!-- container ends -->
+    </div><!--container end-->
+    
     <script src="login.js"></script>
   </body>
 </html>

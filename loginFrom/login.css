@@ -114,6 +114,7 @@ a{
   transition: 1ms;
   background-color: #024fdf;
   font-weight: 700;
+  transform: 5ms;
 }
 
 .disable{
