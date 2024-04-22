@@ -21,7 +21,7 @@ butnsignIn.addEventListener('click', () => {
 butnsignUp.addEventListener('click', () => {
   title.innerHTML = 'SignUp';
   nameFeild.style.maxHeight = '50px';
-  underline.style.transform = 'translateX(10px)';
+  underline.style.transform = 'translateX(0)';
    butnsignIn.classList.add('disable');
    butnsignUp.classList.remove('disable');
    text.innerHTML = 'Password Suggestions ?';
