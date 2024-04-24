@@ -84,6 +84,100 @@ const restaurant = {
   },
 };
 
+// CLASS 13  PART===> 3 STRING  METHODS AND MUCH MANY MORE  =====>
+
+
+// SPLIT method split( )  method split and returen the array 
+
+console.log('A+very+nice+String+Example+Of+Split'.split('+'));
+console.log(`kamlesh singh bisht`.split( ' '));
+
+const [firstName,middele,lastName]= `kamlesh singh bisht`.split(' ');
+console.log(firstName,middele,lastName);
+
+// JOIN Method join()
+const finalName = ['Mr.',firstName,middele,lastName.toUpperCase()].join(' ');
+console.log(finalName);
+
+///////////////////////////////////////////////////////////////////
+
+const names ='lal tamatar lal tamatar';
+
+const capitalization = function(names){
+  const name =names.split(' ');
+  const upperName =[];
+  for(const n of name){
+    // upperName.push(n[0].toUpperCase()+n.slice(1));
+    upperName.push(n.replace(n[0],n[0].toUpperCase()));
+  }
+  console.log(upperName.join(' '));
+
+}
+
+capitalization(`mr kamal mohan singh bisht`);
+capitalization('jessica ann smith davis');
+capitalization('jonas schmedtmann');
+capitalization(`${names}`);
+
+// Padding (masking the creadit card details ) 
+// Adding a certain character in string utile a desire length;
+
+const message = ' Go to gate number 23! '
+console.log(message.padStart(30,'+').padEnd(38,'+'));
+console.log(' kamlesh '.padStart(20,'*').padEnd(34,'*'));
+
+// (masking the creadit card details )
+
+const maskCreditCard= function(number){
+  const card =number +'';
+  const last = card.slice(-4);
+  console.log(last.padStart(card.length,'*'));
+
+}
+
+maskCreditCard(45263632);
+maskCreditCard(21364125363632);
+maskCreditCard(126789123456321);
+maskCreditCard(4512425125412);
+
+
+
+
+
+
+
+
+
+
+
+
+// const maskCreditCard = function (number) {
+//   const str = number+'';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+
+// console.log(maskCreditCard(64637836));
+// console.log(maskCreditCard(3378463864647384));
+// console.log(maskCreditCard('334859493847755774747'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 
 ///////////////////////////////////////////////////
 // CLASS 13  PART===> 2 STRING  METHODS AND MUCH MANY MORE  =====>
@@ -129,32 +223,61 @@ console.log(finalEmail === email);
 
 // replacing 
 
+console.log('A+very+nice+String+Example+Of+Split'.replaceAll('+',' '));
 
 
+const priceUS = '5.80$';
+const priceIND= priceUS.replace('.',',').replace('$',' Rupees');
+console.log(priceIND);
+
+// Example to replace all placce or regular expression
+
+const message = `Hello Good Morning Friends ! Friends this Flight is going from Delhi to Uttarakhand keep smileing and enjoys `;
+const finalMessage =message.replaceAll('Friends','people');
+console.log(finalMessage);
 
 
+// Example 2
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+//////////////////////////////////////////////////
+// Booleans
+
+const Train= 'Vande Bharat Indian Express Train';
+
+console.log(Train.includes('Bharat'));
+console.log(Train.includes('bharat'));
+console.log(Train.startsWith('Vande'));
+console.log(Train.endsWith('Train'));
+
+if(Train.startsWith('Vande')&& Train.endsWith('Train')){
+  console.log('yes It is Vande Bharat Express !');
+}
+
+// Example of includes method 
+
+const checkPass = function(items){
+ const baggage= items.toLowerCase();
+ if(baggage.includes('knife') || baggage.includes('gun')){
+  console.log(`You are not ⛔ allowed in the plan ✈`);
+ }else{
+  console.log('Welcome to aboard 💐');
+ }
+
+}
+
+checkPass('I have laptop ,some Food and a pocket KniFe');
+checkPass('I have car keys and my cloths');
+checkPass('I have a small bag with GuN');
+checkPass('Socks and camera');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
