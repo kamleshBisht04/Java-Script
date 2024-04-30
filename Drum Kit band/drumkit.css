@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+}
+
+body {
+ 
+  height: 100vh;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg,rgb(229, 140, 217),rgb(49, 186, 194),rgb(100, 195, 221));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  height: 65rem;
+  width: 130rem;
+  background-color: rgba(255, 255, 255, 0.355);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#title{
+  position: absolute;
+  left: 37%;
+  top: 10%;
+   font-size: 5rem;
+  color: #b23796;
+  font-family: "Arvo", cursive;
+  text-shadow: 5px 0 #d2d0d1;
+  letter-spacing: 4px;
+
+}
+
+span{
+font-size: 8rem;
+}
+
+
+button{
+  width: 160px;
+  height: 160px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 6rem; 
+  font-family: "Arvo", cursive;
+  outline: none;
+  border: 10px solid #404B69;
+  line-height: 2;
+  color: #ff0000;
+  text-shadow: 5px 0 #DBEDF3;
+  text-align: center;
+  background-color: white;
+  padding-top: 10px;
+  font-weight: 800;
+}
+
+
+
+
+.w{
+  background: url(./images/tom1.png);
+
+}
+.a{
+  background: url(./images/tom2.png);
+}
+.s{
+  background: url(./images/tom3.png);
+}
+.d{
+  background: url(./images/tom4.png);
+}
+.j{
+  background: url(./images/snare.png);
+}
+.k{
+  background: url(./images/crash.png);
+}
+.l{
+  background: url(./images/kick.png);
+}
+
+footer{
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+  font-size: 20px;
+
+}
+
+.pressed {
+  /* box-shadow: 0 3px 4px 0 #DBEDF3; */
+  box-shadow: 2px 3px 4px 2px #fdfefe;
+  opacity: 0.5;
+}
+
+
+
