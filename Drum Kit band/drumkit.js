@@ -54,3 +54,23 @@ const makeSound = function (key) {
 };
 
 
+// key press event  for keyboard
+
+document.addEventListener('keypress', function (event) {
+  makeSound(event.key);
+  buttonAnimation(event.key);
+});
+
+// button animatation code
+
+// function buttonAnimation(key) {
+//   let button = document.querySelector('.' + key);
+
+//   button.classList.add('pressed');
+
+//   setTimeout(function () {
+//     button.classList.remove('pressed');
+//   }, 100);
+// }
+
+
