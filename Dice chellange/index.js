@@ -19,9 +19,15 @@ const playGame = function(){
    dice1.src =`images/dice${dice1Random}.png`;
    dice2.src =`images/dice${dice2Random}.png`;
 
-   
-
-
+   if(dice1Random > dice2Random){
+    str = ` 🚩 Player 1 winner`;
+   }else if(dice1Random < dice2Random){
+    str = ` Player 2 winner 🚩`;
+   }else if(dice1Random === dice2Random){
+    str = `Its Draw !`
+   }
+  title.innerHTML =str;
+ 
 }
 
 playBtn.addEventListener('click',playGame);
