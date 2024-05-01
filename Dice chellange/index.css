@@ -20,17 +20,21 @@ h1 {
   text-shadow: 5px 0 #232931;
   font-size: 5rem;
   color: #4ECCA3;
+  margin-left: 5rem;
 }
 
 p {
+  margin-left: 5rem;
   font-size: 2rem;
   color: #4ECCA3;
   font-family: 'Indie Flower', cursive;
 }
 
 img {
+  
   width: 200px;
   height: 200px;
+  margin-left: 5rem;
 }
 
 #play{
