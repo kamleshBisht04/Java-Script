@@ -303,8 +303,7 @@ if (age == "18") {
 //     console.log(`Not a valid Day`);
 // }
 
-
-//  Stat4ments and Expressions 
+//  Stat4ments and Expressions
 
 // console.log(3+4);
 // console.log(1996);
@@ -318,8 +317,6 @@ if (age == "18") {
 // const me  ='jonas';
 // console.log(`I am ${2037-1996} year old and my name is  ${me}`);
 
-
-
 /*Ternary operator */
 
 // const  age =25;
@@ -328,11 +325,7 @@ if (age == "18") {
 
 // console.log(drink);
 
-
-
-
 /* Tip calculator  */
-
 
 // const bill =  40; //450 //275
 
@@ -341,24 +334,4 @@ if (age == "18") {
 // const total  = bill +tips;
 
 // console.log(` The bill value is : ${bill} and the Tip is  : ${tips} The total value payed  : ${total})
-// `);   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// `);

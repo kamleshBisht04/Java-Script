@@ -1,50 +1,47 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: inherit;
-
-
 }
 
-html{
+html {
   font-size: 65.5%;
   box-sizing: border-box;
 }
 
-body{
+body {
   color: white;
   background-color: #000000;
   /* background-color: #70e660; */
   height: 90vh;
 }
-header{
+header {
   position: relative;
   height: 35vh;
   border-bottom: 8px solid white;
 }
 
-main{
+main {
   display: flex;
   justify-content: space-around;
   color: white;
   height: 55vh;
   align-items: center;
 }
-.left{
+.left {
   width: 52rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.right{
+.right {
   font-size: 2rem;
   width: 52rem;
-  
 }
 
-h1{
- font-size: 5rem;
+h1 {
+  font-size: 5rem;
   text-align: center;
   position: absolute;
   width: 100%;
@@ -52,77 +49,71 @@ h1{
   left: 50%;
   transform: translate(-50%, -50%);
   color: #07f8e8;
-  
-  
 }
 
-.number{
-    background-color: lemonchiffon;
-    border-radius: 10px;
-    width: 81px;
-    height: 75px;
-    position: absolute;
-    top: 97%;
-    left: 50%;
-    font-size: 6rem;
-    margin: 10px;
-    color: black;
-    text-align: center;
-    border-bottom: 0;
-    transform: translate(-50%,-50%);
+.number {
+  background-color: lemonchiffon;
+  border-radius: 10px;
+  width: 8rem;
+  height: 75px;
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  font-size: 6rem;
+  margin: 10px;
+  color: black;
+  text-align: center;
+  border-bottom: 0;
+  transform: translate(-50%, -50%);
 }
 
-.Between{
+.Between {
   display: flex;
   justify-content: end;
   font-size: 2rem;
   margin-right: 8%;
   margin-top: 40px;
   border: 2px solid white;
- margin-left: 71%;
- padding: 8px;
- border-radius: 25px;
- background-color: rgb(211, 123, 194);
- color: black;
+  margin-left: 71%;
+  padding: 8px;
+  border-radius: 25px;
+  background-color: rgb(211, 123, 194);
+  color: black;
 }
 
-
-.btn{
-width: auto;
-padding:10px 20px;
-font-size: 2.5rem;
-border-radius: 20px;
-position: absolute;
-margin-left: 35px;
-border: 5px solid rgb(144, 144, 143);
-cursor: pointer;
- 
+.btn {
+  width: auto;
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 35px;
+  border: 5px solid rgb(144, 144, 143);
+  cursor: pointer;
 }
 
-.Again{
-   left: 10%;
+.Again {
+  left: 10%;
   top: 100px;
 }
 
-.check{
+.check {
   left: 19%;
   top: 470px;
-  
-  
 }
 
-.guess{
+.guess {
   height: 50px;
   width: 230px;
   position: relative;
   bottom: 72px;
   font-weight: 700;
-  font-size:35px;
+  font-size: 35px;
   text-align: center;
-  border-radius: 10px ;
+  border-radius: 10px;
 }
 
-.Text-heading{
+.Text-heading {
   color: white;
   font-size: 2rem;
   position: relative;
@@ -130,35 +121,14 @@ cursor: pointer;
   font-weight: 700;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: lemonchiffon;
 }
 
-.result{
+.result {
   font-size: 2.5rem;
   position: relative;
   bottom: 60px;
   left: 150px;
   line-height: 60px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
