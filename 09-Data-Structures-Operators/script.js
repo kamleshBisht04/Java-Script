@@ -62,7 +62,8 @@ const restaurant = {
     location = 'Delhi',
   }) {
     console.log(
-      `Order Recevied ! 😊 ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} in the box at my location ${location} sharp ${time}`
+      `Order Recevied ! 😊 ${this.starterMenu[starterIndex]} and 
+      ${this.mainMenu[mainIndex]} in the box at my location ${location} sharp ${time}`
     );
   },
 
@@ -80,8 +81,6 @@ const restaurant = {
   },
 };
 
-
-
 ///////////////////////////////////////
 // String Methods Practice
 
@@ -95,21 +94,22 @@ const flights =
 
 // solution ||==============================>>>>>>
 
-const getCode = str =>str.slice(0,3).toUpperCase();
+const getCode = str => str.slice(0, 3).toUpperCase();
 
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
 
-for(const flight of flights.split('+')){
-   const [type ,from,to ,time]=flight.split(';');
-   
-   const output=`${type.startsWith('_Delayed') ? '🔴': ''}${type.replaceAll('_',' ')} from ${getCode(from)} to ${getCode(to)} (${time.replaceAll(':', 'h')})`.padStart(46);
-   console.log(output);
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replaceAll(
+    ':',
+    'h'
+  )})`.padStart(46);
+  console.log(output);
 }
 
-
-
-
 // CLASS 14  STRING  QUESTIONS  =====>
-
 
 ///////////////////////////////////////
 // Coding Challenge #4
@@ -143,26 +143,25 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
-
 // Solution of  4 ===========>
 
 document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'))
+document.body.append(document.createElement('button'));
 
-document.querySelector('button').addEventListener('click',function(){
-const text = document.querySelector('textarea').value;
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
 
-const rows = text.split('\n');
-for(const[i,row] of rows.entries()){
-   const [first,second]= row.toLowerCase().trim().split('_');
-   
-   const output = `${first}${second.replace(second[0],second[0].toUpperCase())}`;
-   console.log(`${output.padEnd(20)}${'✅'.repeat(i +1)}`);
-}
+  const rows = text.split('\n');
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
 
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
 });
-
-
 
 /*
 
@@ -242,9 +241,6 @@ Flight(7);
 
 
 */
-
-
-
 
 /*
 
@@ -349,10 +345,6 @@ checkPass('Socks and camera');
 
 */
 
-
-
-
-
 /////////////////////////////////////////////////////////////////
 
 /*
@@ -425,8 +417,6 @@ console.log(typeof new String('kamlesh').slice(1));
 
 
 */
-
-
 
 // CLASS 12   SETS &   MAPS  FUNDAMANTALS
 
@@ -643,6 +633,67 @@ console.log(orderSet.size);
 
 console.log( new Set('kamlesh singh bisht').size);
 
+//////----------------------------------
+
+const foods = [
+  'meet',
+  'daal',
+  'Rice',
+  'Roti',
+  'pickal',
+  'chikken',
+  'green vegetable',
+];
+
+foods.forEach(function (element) {
+  console.log(element);
+});
+
+// sets new  7  methods
+
+const italianFood = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFood = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+//1. intersection() method .
+const commonFood = italianFood.intersection(mexicanFood);
+console.log(...commonFood);
+console.log([...commonFood]); // converting  to  [] ...
+
+//2. union() method .
+
+const unionFood = italianFood.union(mexicanFood);
+console.log([...unionFood]);
+
+//3. difference() method .
+// return the 1 set of unique elements
+
+const diffrentFood = italianFood.difference(mexicanFood);
+console.log(diffrentFood);
+
+//4. symmetricDiffenence()  method .
+// return the element diffents in both the sets
+
+const uniqueFood = italianFood.symmetricDifference(mexicanFood);
+console.log(uniqueFood);
+
+//isSubsetOf(), isDisjointFrom() ,isSuperSetof()
+
+console.log(italianFood.isDisjointFrom(mexicanFood));
 
 */
 
@@ -1034,6 +1085,8 @@ console.log(array);
 const [a,b,...other]=[1,2,3,4,5,6,7,8];
 console.log(a,b,other);
 
+// example of both rest and spread operater using
+
 const [Pizza, , Risotto,...otherFoods] = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
 console.log(Pizza,Risotto,otherFoods);
@@ -1128,6 +1181,7 @@ console.log(a,b);
 
 const {fri:{open,close}}=openingHours;
 console.log(open,close);
+ 
 const {sat:{open :o,close:c}}=openingHours;
 console.log(o,c);
 

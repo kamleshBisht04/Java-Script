@@ -60,7 +60,7 @@ console.log(age);
 
 // const myName = 'Jonas';
 
-// let job = 'teacher';
+// (let job = 'teacher';)
 // if(myName === 'Jonas'){
 //   console.log(`Jonas is a ${ job} `);
 //   const age = 2037-1989;
@@ -109,6 +109,7 @@ const addExpr = function(a,b){
 }
 
 var addArrow =(a,b)=> a+b;
+
 
 // Example 
 
@@ -267,50 +268,47 @@ let oldLastName = lastName;
 lastName = 'Bisht';
 console.log(lastName, oldLastName);
 
-
 // Reference type
 
-const student1 ={
- firstName :'kamlesh',
- lastName : 'Bisht',
- age : 29,
+const student1 = {
+  firstName: 'kamlesh',
+  lastName: 'Bisht',
+  age: 29,
 };
 
-const student2 =student1;
-student2.age=32;
-student2.lastName='Rawat';
-console.log('student 1 : ' ,student1);
-console.log('student 2 : ' , student2);
-
+const student2 = student1;
+student2.age = 32;
+student2.lastName = 'Rawat';
+console.log('student 1 : ', student1);
+console.log('student 2 : ', student2);
 
 // //  student2 ={};  we cant do it.
 
 /***  Copying the object but only shallow copy made */
 
-const student ={
-  firstName : 'kamlesh',
-  lastName : 'Bisht',
-  age : 28,
+const student = {
+  firstName: 'kamlesh',
+  lastName: 'Bisht',
+  age: 28,
   city: 'Ranikhet',
-  friends :['Deepak','Ajay',"Raj","Sanjay",'sana'],
-}
+  friends: ['Deepak', 'Ajay', 'Raj', 'Sanjay', 'sana'],
+};
 
 console.log(student);
 
 // When we copy the object we are not preserve the old object
 const newStudent = student;
-newStudent.age=22;
-newStudent.firstName='Ajay'
+newStudent.age = 22;
+newStudent.firstName = 'Ajay';
 console.log(newStudent);
 console.log(student);
 
-const newStudent1 = Object.assign({},student);
-newStudent1.firstName= 'Ajay';
-newStudent1.lastName='kumar';
-newStudent1.age =27;
+const newStudent1 = Object.assign({}, student);
+newStudent1.firstName = 'Ajay';
+newStudent1.lastName = 'kumar';
+newStudent1.age = 27;
 console.log(newStudent1);
 console.log(student);
-
 
 newStudent.friends.push('Dev');
 console.log(newStudent1);
@@ -335,85 +333,3 @@ jessicaCopy.family.push('John');
 console.log('Before marriage:', jessica2);
 console.log('After marriage: ', jessicaCopy);
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
