@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 ///////////////////////////////////////////////////////////
 //**********************************************************
@@ -45,6 +45,33 @@ multiply();
 //*HOW PASSING ARGUMENTS WORKS : VALUE TYPE VS REFERENCE TYPE**
 //*************************************************************
 
+// pass by value  for primitive
+let x = 10;
+let y = x;
+
+x = 20;
+console.log("The value of  x  : " + x);
+console.log("The value of  Y  : " + y);
+
+//call by referance
+//Unlike pass by value in JavaScript, pass by reference in JavaScript does not create a new space in the memory, instead, we pass the reference/address of the actual parameter, which means the function can access the original value of the variable. Thus, if we change the value of the variable inside the function, then the original value also gets changed.
+
+const kamlesh = {
+  firstName: "kamlesh singh bisht",
+};
+const Deepak = kamlesh;
+
+const changeName = function (obj) {
+  console.log(obj);
+  obj.firstName = "Deepak";
+};
+
+changeName(kamlesh);
+
+console.log(kamlesh);
+console.log(Deepak);
+
+
 const flight ='LH234';
 const kamleh={
   name: 'kamlesh singh bisht',
@@ -78,7 +105,7 @@ checkIn(flight,kamleh);
 
 //*************************************************************
 //*************************************************************
-//*  2. function manipulating same object that creating problem 
+//*  2. function manipulating same object that creating problem
 //*************************************************************
 /*
 First class function =>  treat as a First citizens 
@@ -161,7 +188,7 @@ document.body.addEventListener('click', high5);
 
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //*************************************************************
-//*  3. function returning function: 
+//*  3. function returning function:
 //*************************************************************
 
 /*
@@ -260,16 +287,21 @@ console.log(AirIndia);
 // Example 2
 
 
-const greet= function(){
+const greet = function () {
   console.log(`${this.animal} is sleeping between ${this.duration}.`);
-}
-
-const obj ={
-  animal:"cat",
-  duration: '3 - 5',
 };
 
+const obj = {
+  animal: "cat",
+  duration: "3 - 5",
+};
+
+const dog = {
+  animal: "Dog (labra)",
+  duration: "5-6",
+};
 greet.call(obj);
+greet.call(dog);
 
 
 
@@ -328,7 +360,6 @@ console.log(addVAT2(100));
 console.log(addVAT2(23));
 */
 
-
 /*
 //*************************************************************
 //*****             IIFE        *********************
@@ -367,9 +398,9 @@ console.log(isNotPrivate);
 
 //*************************************************************
 //****************         CLOSER       ********************
- // EXUCTION CONTEST ,SCOPE CHAIN ,CALL STACK 
+// EXUCTION CONTEST ,SCOPE CHAIN ,CALL STACK
 //*************************************************************
-// CLOSER IS NOT A FEATUR THAT WE EXPLICITLY USE DONT CREATE MANUALLY  HAPPEND AUTOMATICALLY IN CERTAIN SITUATION WE NEED TO RECONIZE THOSE SITUATION 
+// CLOSER IS NOT A FEATUR THAT WE EXPLICITLY USE DONT CREATE MANUALLY  HAPPEND AUTOMATICALLY IN CERTAIN SITUATION WE NEED TO RECONIZE THOSE SITUATION
 //
 
 /*
@@ -390,7 +421,6 @@ booker();
 booker();
 
 */
-
 
 //*************************************************************
 //  EXAMPLE 1
@@ -458,15 +488,66 @@ And now explain to YOURSELF (or someone around you) WHY this worked! Take all th
 GOOD LUCK 😀
 */
 
-
 (function () {
-  const header = document.querySelector('h1');
-  header.style.color = 'red';
-   
-  document.querySelector('body').addEventListener('click',function(){
-    header.style.color ='blue'
-  })
+  const header = document.querySelector("h1");
+  header.style.color = "red";
 
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
 })();
 
+//-------------------------------------------------------
 
+// Bind method example ----
+
+const addTax = (rate, value) => value + (value * rate) / 100;
+console.log(addTax(10, 100));
+console.log(addTax(10, 300));
+
+const addVAT = addTax.bind(null, 23);
+console.log(addVAT(100));
+console.log(addVAT(500));
+
+// IMMEDIATELY InVIKED FUNCTION EXPRESSIONS
+
+const runOnce = function (name) {
+  console.log(`${name} this function runs ones `);
+};
+
+runOnce("kamleh");
+runOnce("Deepak");
+runOnce("Ajay");
+
+(function (name) {
+  console.log(`${name} this function runs ones`);
+})("suman");
+
+//----------------------------------
+
+// closer
+
+const outerFunctinon = function () {
+  let outerVariable = "Hello";
+  return function () {
+    console.log(`Its the clouser :  ${outerVariable}`);
+  };
+};
+
+const clouser = outerFunctinon();
+clouser();
+
+const secureBooking = function () {
+  let passangerCount = 0;
+  return function () {
+    passangerCount++;
+    console.log(`${passangerCount} passanger in the Bus `);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+booker();
