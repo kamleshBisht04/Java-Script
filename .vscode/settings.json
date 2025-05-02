@@ -1,22 +1,6 @@
 {
-  "livePreview.customExternalBrowser": "Chrome",
-  "liveServer.settings.ignoreFiles": [
-    ".vscode/**",
-    "**/*.scss",
-    "**/*.sass",
-    "**/*.ts"
-  ],
-  "liveServer.settings.CustomBrowser": "chrome",
-  "liveServer.settings.NoBrowser": false,
-  "liveServer.settings.port": 0,
-  "editor.formatOnPaste": false,
-  "editor.fontSize": 15.5,
-  "editor.fontFamily": "Cascadia, Fira code ,Consolas, 'Courier New', monospace",
-  "editor.wordWrap": "on",
+  "files.autoSave": "afterDelay",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "editor.mouseWheelZoom": true,
-  "files.autoSaveWhenNoErrors": true,
-  "files.autoSaveWorkspaceFilesOnly": true
+  "livePreview.customExternalBrowser": "Chrome",
+  "liveServer.settings.CustomBrowser": "chrome"
 }

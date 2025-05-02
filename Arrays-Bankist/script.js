@@ -153,7 +153,7 @@ const displayMovements = function (acc, sort = false) {
     movements: mov,
     movementsDates: acc.movementsDates.at(i),
   }));
-  
+
   if (sort) combinedMovementDate.sort((a, b) => a.movements - b.movements);
   // const movs = sort
   //   ? acc.movements.slice().sort((a, b) => a - b)
@@ -366,7 +366,7 @@ btnTransfer.addEventListener('click', function (e) {
     updateUI(currentAccount);
 
     // Reset timmer
-    if (timer) clearInterval(timer);
+    clearInterval(timer);
     timer = startLogOutTimmer();
   }
   // clearing the input feilds
@@ -391,7 +391,7 @@ btnLoan.addEventListener('click', function (e) {
       // update the UI
       updateUI(currentAccount);
       // Reset timmer
-      if (timer) clearInterval(timer);
+      clearInterval(timer);
       timer = startLogOutTimmer();
     }, 2500);
   }

@@ -63,6 +63,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 //  Array projects bankist  ////////////////////
 
+
 // ADDING MOVEMENTS IN THE SCROLL BAR
 const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = ' ';
@@ -348,6 +349,18 @@ console.log([...arr2,...arr3]);
 const letters = arr2.concat(arr3);
 console.log(letters.join('-'));
 
+
+//--------------------
+const num1 = [7,8,9,5,7,0,9,1,8,8];
+const num2 = [9,5,3,6,1,1,4,5,8,2];
+
+const n = num1.concat(num2)
+console.log(n);
+console.log(typeof n);
+
+const s = num1.concat(num2).join('-')
+console.log(s);
+console.log(typeof s);
 */
 
 //*********************************************************
@@ -365,8 +378,9 @@ for(const [i,balance]  of movements.entries()){
     console.log(`Transation ${i+1} You withdrew ${Math.abs(balance)}`);
   }
 }
+
 // FOR EACH LOOP 
-// array.entry() method it return the array of array [i,balance] index,value counter variable
+// array.entry() method it return the array of array [i,balance] index,value
 //In for each the balance passing in parimeter list ( (current ele)=> value ,index,entire array )
 // order is important ..    // cant break for each loop 
 
@@ -1036,55 +1050,61 @@ const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsSorted);
 */
 
-console.log('----------------------------------');
-const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
-console.log(arr);
 
-console.log(arr.slice(2));
-console.log(arr.slice(1, 4)); // 1 2 3 element
-console.log(arr.slice(-2)); // last 2 element
-console.log(arr); // nothing change in orignal array
-console.log(arr.slice()); // shellow copy
-console.log(...arr); // unpacking the array
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-//********     ARRAY METHOD SPLICE()    *******************
-// SPLICE METHOD MODIFY THE ORIGNAL ARRAY
-console.log(arr.splice(-1));
-console.log(arr.splice(3));
-console.log(arr);
-console.log(arr.splice(2));
-console.log(arr);
+console.log('-----Normal print using for of ----');
+for (const mov of movements) {
+  if (mov < 0) {
+    console.log(`Transation  : You deposited ${Math.abs(mov)} Rupess`);
+  } else {
+    console.log(`Transation  : You withdrew ${Math.abs(mov)} Rupess`);
+  }
+}
 
-// IT CUT THE ARRAY FROM 1 TO 2 FROM ORIGNAL STRING
-const arr1 = ['a', 'b', 'c', 'd', 'e', 'f'];
-console.log(arr1.splice(1, 2));
-console.log(arr1);
+console.log('------For of distructuring  ------');
 
-// ARRAY .at()method
+for (const [i, balance] of movements.entries()) {
+  if (balance > 0) {
+    console.log(
+      `Transation ${i + 1} : You deposited ${Math.abs(balance)} Rupess`
+    );
+  } else {
+    console.log(
+      `Transation ${i + 1} : You withdrew ${Math.abs(balance)} Rupess`
+    );
+  }
+}
 
-const marks = [23, 56, 96, 85, 0, 12, 52];
-console.log(marks[0]);
-console.log(marks.at(0));
-console.log(marks.at(1));
-console.log(marks.at(3));
-console.log(marks.at(marks.length - 1));
-console.log(marks.slice(-1));
-console.log(marks.slice(-1).at(0)); // out the number slice method
-console.log('kamlesh'.at(-1)); // also work at string
+//---------------------------------------------
+console.log('-----ForEach using callBack function-------');
 
-// REVERSE
+movements.forEach(function (balance, i, arr) {
+  if (balance > 0) {
+    console.log(
+      `Transation ${i + 1} : You deposited ${Math.abs(balance)} Rupess`
+    );
+  } else {
+    console.log(
+      `Transation ${i + 1} : You withdrew ${Math.abs(balance)} Rupess`
+    );
+  }
+});
 
-const arr2 = ['a', 'b', 'c', 'd', 'e', 'f'];
-const arr3 = ['g', 'h', 'i', 'j', 'k', 'l'];
-console.log(arr3.reverse());
-console.log(arr3); // muted the orignal array
+console.log('------For Each Arrow function-----');
 
-// CONCAT METHOD
+movements.forEach((balance, i, arr) => {
+  if (balance > 0) {
+    console.log(
+      `Transation ${i + 1} : You deposited ${Math.abs(balance)} Rupess`
+    );
+  } else {
+    console.log(
+      `Transation ${i + 1} : You withdrew ${Math.abs(balance)} Rupess`
+    );
+  }
+});
+console.log('-----------------------------------');
 
-console.log(arr2.concat(arr3));
-console.log([...arr2, ...arr3]);
+console.log("maps and set has also for each ");
 
-//JOIN METHOD
-
-const letters = arr2.concat(arr3);
-console.log(letters.join('-'));
