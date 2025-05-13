@@ -18,9 +18,8 @@ class workout {
     // prettier-ignore
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    this.description = `${this.type.at(0).toUpperCase()}${this.type.slice(
-      1
-    )} on ${months[this.date.getMonth()]} ${this.date.getDate()} `;
+    this.description = `${this.type.at(0).toUpperCase()}${this.type.slice(1)} 
+    on ${months[this.date.getMonth()]} ${this.date.getDate()} `;
   }
 
   click() {
@@ -54,15 +53,15 @@ class Cycling extends workout {
   }
   calcSpeed() {
     //km/h
-    this.speed = this.distance / this.duration / 60;
+    this.speed = (this.distance / this.duration) * 60;
     return this.speed;
   }
 }
 
 // experiment with class
-const run1= new Running([39,-12],5.2,24,178);
-const cycling1= new Cycling([39,-12],27,95,523);
-console.log(run1,cycling1);
+const run1 = new Running([39, -12], 5.2, 24, 178);
+const cycling1 = new Cycling([39, -12], 27, 95, 523);
+console.log(run1, cycling1);
 
 /////////////////////////////////////////////////////
 // APPLICATION ARCHITECTURE
@@ -80,12 +79,13 @@ class App {
   #workouts = [];
   #mapZoomLevel = 13;
   constructor() {
+    // get user's position
     this._getPosition();
-
+    //Get data from local storage
+    this._getLocalStorage();
+    // attach event handler
     form.addEventListener('submit', this._newWorkout.bind(this));
-
     inputType.addEventListener('change', this._toggleElevationField);
-
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
@@ -116,6 +116,12 @@ class App {
 
     // Handling clicks on map
     this.#map.on('click', this._showForm.bind(this));
+
+    //render the marker in local storage logic
+    // not work becoz getlocalStorage call first then render marker so put in load map
+     this.#workouts.forEach(work => {
+      this._renderWorkoutMarker(work);  
+    });
   }
 
   _showForm(mapE) {
@@ -195,7 +201,10 @@ class App {
     // Hide the from + clear the form
 
     // clearing the feilds
-    this._hideForm(workout);
+    this._hideForm();
+
+    // set local storage to all workouts
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -283,6 +292,22 @@ class App {
     });
     // using the public interface
     workout.click();
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    if (!data) return;
+
+    this.#workouts = data;
+    this.#workouts.forEach(work => {
+      this._renderWorkout(work);
+      // this._renderWorkoutMarker(work);  not work becoz getlocalStorage call first then render marker so put in load map
+    });
   }
 }
 
