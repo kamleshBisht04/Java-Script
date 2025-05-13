@@ -119,8 +119,8 @@ class App {
 
     //render the marker in local storage logic
     // not work becoz getlocalStorage call first then render marker so put in load map
-     this.#workouts.forEach(work => {
-      this._renderWorkoutMarker(work);  
+    this.#workouts.forEach(work => {
+      this._renderWorkoutMarker(work);
     });
   }
 
@@ -308,6 +308,11 @@ class App {
       this._renderWorkout(work);
       // this._renderWorkoutMarker(work);  not work becoz getlocalStorage call first then render marker so put in load map
     });
+  }
+
+  reset(){
+    localStorage.removeItem('workouts');
+      location.reset();
   }
 }
 
