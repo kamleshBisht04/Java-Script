@@ -94,7 +94,7 @@ const rendringCountry = function (data, className = '') {
 
 //     // get neighbour country Ajax call 2 callBack hell
 //     const [neighbour] = data.borders;
-
+// data.borders
 //     if (!neighbour) return;
 //     const request2 = new XMLHttpRequest();
 //     request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbour}`);
@@ -155,7 +155,27 @@ const countryInfo = function (country) {
     .then(date => rendringCountry(date[0]));
 };
 
-countryInfo('usa');
-countryInfo('India');
-countryInfo('portugal');
+// countryInfo('usa');
+// countryInfo('India');
+// countryInfo('portugal');
 
+//////////////////////////////////////
+//CHAINING OF PROMISS
+
+const countryData = function (country) {
+    //country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(data => {
+      rendringCountry(data[0]);
+      const neighbour= data[0].borders?.[0];
+      if(!neighbour) return;
+      // country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data =>rendringCountry(data[0],'neighbour'));
+};
+
+// countryData('india');
+countryData('usa');
