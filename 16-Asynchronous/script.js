@@ -81,44 +81,81 @@ const rendringCountry = function (data, className = '') {
 
 // callBack hell start
 
-const getCountryAndNeighbour = function (country) {
-  //AJAx call 1
-  const request = new XMLHttpRequest();
-  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
-  request.send();
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    // rendring country data 1
-    rendringCountry(data);
+// const getCountryAndNeighbour = function (country) {
+//   //AJAx call 1
+//   const request = new XMLHttpRequest();
+//   request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+//   request.send();
+//   request.addEventListener('load', function () {
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
+//     // rendring country data 1
+//     rendringCountry(data);
 
-    // get neighbour country Ajax call 2 callBack hell
-    const [neighbour] = data.borders;
+//     // get neighbour country Ajax call 2 callBack hell
+//     const [neighbour] = data.borders;
 
-    if (!neighbour) return;
-    const request2 = new XMLHttpRequest();
-    request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbour}`);
-    request2.send();
-    request2.addEventListener('load', function () {
-      const [data2] = JSON.parse(this.responseText);
-      console.log(data2);
-      rendringCountry(data2, 'neighbour');
-    });
-  });
-};
+//     if (!neighbour) return;
+//     const request2 = new XMLHttpRequest();
+//     request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbour}`);
+//     request2.send();
+//     request2.addEventListener('load', function () {
+//       const [data2] = JSON.parse(this.responseText);
+//       console.log(data2);
+//       rendringCountry(data2, 'neighbour');
+//     });
+//   });
+// };
 
-getCountryAndNeighbour('india');
+// getCountryAndNeighbour('india');
 // getCountryAndNeighbour('usa');
 
 // another example of callBack hell
 
-setTimeout(
-  () => console.log('1 second passed'),
-  setTimeout(() => console.log('2 second passed'), 
-   setTimeout(() => console.log('3 second passed'),
-    setTimeout(() => console.log('4 second passed'), 
-  4000), 
-  3000),
-  2000),
-  1000
-);
+// setTimeout(
+//   () => console.log('1 second passed'),
+//   setTimeout(
+//     () => console.log('2 second passed'),
+//     setTimeout(
+//       () => console.log('3 second passed'),
+//       setTimeout(() => console.log('4 second passed'), 4000),
+//       3000
+//     ),
+//     2000
+//   ),
+//   1000
+// );
+
+//////////////////////////////////////////
+
+//CONSUME  PROMISS
+
+//how it will return promiss
+// const request = fetch('https://restcountries.com/v3.1/name/india');
+// console.log(request);
+
+// country data
+
+// const countryInfo = function (country) {
+//   fetch(`https://restcountries.com/v3.1/name/${country}`)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       rendringCountry(data.at(0));
+//     });
+// };
+
+// above By arrow function
+
+const countryInfo = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(date => rendringCountry(date[0]));
+};
+
+countryInfo('usa');
+countryInfo('India');
+countryInfo('portugal');
+
