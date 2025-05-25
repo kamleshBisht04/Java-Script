@@ -3,6 +3,36 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
+const rendringCountry = function (data, className = '') {
+  // html handling
+  const flag = data.flags.png;
+  const region = data.region;
+  const population = +(data.population / 1000000).toFixed(1);
+  const countryName = data.name.common;
+  const languages = Object.values(data.languages).at(0);
+  const currencies = Object.values(data.currencies).at(0).name;
+
+  const html = `
+        <article class="country ${className}">
+        <img class="country__img" src="${flag}" />
+        <div class="country__data">
+        <h3 class="country__name">${countryName}</h3>
+        <h4 class="country__region">${region}</h4>
+        <p class="country__row"><span>👫</span>${population} million people</p>
+        <p class="country__row"><span>🗣️</span>${languages}</p>
+        <p class="country__row"><span>💰</span>${currencies}</p>
+        </div>
+        </article>
+        `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const rendringError = function (message) {
+  countriesContainer.insertAdjacentText('beforeend', message);
+  countriesContainer.style.opacity = 1;
+};
+
 // NEW COUNTRIES API URL (use instead of the URL shown in videos):
 // https://restcountries.com/v2/name/portugal
 
@@ -53,31 +83,6 @@ const countriesContainer = document.querySelector('.countries');
 /////////////////////////////////////////
 
 // callBack hell
-
-const rendringCountry = function (data, className = '') {
-  // html handling
-  const flag = data.flags.png;
-  const region = data.region;
-  const population = +(data.population / 1000000).toFixed(1);
-  const countryName = data.name.common;
-  const languages = Object.values(data.languages).at(0);
-  const currencies = Object.values(data.currencies).at(0).name;
-
-  const html = `
-        <article class="country ${className}">
-        <img class="country__img" src="${flag}" />
-        <div class="country__data">
-        <h3 class="country__name">${countryName}</h3>
-        <h4 class="country__region">${region}</h4>
-        <p class="country__row"><span>👫</span>${population} million people</p>
-        <p class="country__row"><span>🗣️</span>${languages}</p>
-        <p class="country__row"><span>💰</span>${currencies}</p>
-        </div>
-        </article>
-        `;
-  countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
-};
 
 // callBack hell start
 
@@ -130,7 +135,8 @@ const rendringCountry = function (data, className = '') {
 
 //CONSUME  PROMISS
 
-//how it will return promiss
+// how it will return promiss
+
 // const request = fetch('https://restcountries.com/v3.1/name/india');
 // console.log(request);
 
@@ -152,9 +158,13 @@ const rendringCountry = function (data, className = '') {
 const countryInfo = function (country) {
   fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(response => response.json())
-    .then(date => rendringCountry(date[0]));
+    .then(data => {
+      // console.log(data);
+      rendringCountry(data[0]);
+    });
 };
 
+// countryInfo('india');
 // countryInfo('usa');
 // countryInfo('India');
 // countryInfo('portugal');
@@ -162,20 +172,83 @@ const countryInfo = function (country) {
 //////////////////////////////////////
 //CHAINING OF PROMISS
 
-const countryData = function (country) {
-    //country 1
+const getCountryData = function (country) {
+  // country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
       rendringCountry(data[0]);
-      const neighbour= data[0].borders?.[0];
-      if(!neighbour) return;
+      const neighbour = data[0].borders?.[0];
+      if (!neighbour) return;
       // country 2
       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
     })
-    .then(response => response.json())
-    .then(data =>rendringCountry(data[0],'neighbour'));
+    .then(res => res.json())
+    .then(data => rendringCountry(data[0], 'neighbour'));
 };
 
-// countryData('india');
-countryData('usa');
+// getCountryData('India');
+// getCountryData('usa');
+
+///// RETURN ALL NEIGHBOUR COUNTRY USING FOR EACH
+
+///////////////////////////////////////////////////
+
+const getCountryData1 = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(res => res.json())
+    .then(data => {
+      rendringCountry(data[0]);
+      const neighbour = data[0].borders;
+
+      if (!neighbour) return;
+      console.log(neighbour);
+      return neighbour.forEach(neighbour =>
+        fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
+          .then(res => res.json())
+          .then(data => rendringCountry(data[0], 'neighbour'))
+      );
+    });
+};
+// getCountryData1('India');
+// getCountryData1('usa');
+// getCountryData1('United Kingdom');
+
+/////////////////////////////////////////////////
+
+//HANDLING THE REJECT PROMISS // when user looses the internet connection
+
+const getsCountryData = function (country) {
+  // country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(res => res.json())
+    .then(data => {
+      rendringCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+      if (!neighbour) return;
+      // country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(res => res.json())
+    .then(data => rendringCountry(data[0], 'neighbour'))
+    // handling the reject promiss
+    .catch(err => {
+      // console.error(`${err}`);
+      rendringError(
+        `Something went wrong ${err.message} 💥💥💥💥💥.Try Agian!`
+      );
+    })
+    // execute definatlly catch return also promiss
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
+
+// btn.addEventListener('click', function () {
+//   getsCountryData('india');
+// });
+
+
+///////////////////////////////////////////////////////////////
+
+
