@@ -440,7 +440,7 @@ console.log('Test end.');
 */
 
 ///////////////////////////////////////////////////////
-
+/* 
 // Building a simple promise
 // executor function
 // incoprate the ashrynchronous behaviour in promise
@@ -487,4 +487,61 @@ wait(1)
   // easy fullfilled and rejectied promiss imiditly 
   // static method on promiss constructor
   Promise.resolve('abc').then(res=> console.log(res));
-  Promise.reject(new Error('Problem!!')).catch(res=> console.error(res));
+  Promise.reject(new Error('Problem!!')).catch(res=> console.error(res)); 
+  
+  */
+//////////////////////////////////////////////
+// asynchronous behaviour
+
+// navigator.geolocation.getCurrentPosition(
+//   position => console.log(position),
+//   err => console.error(err)
+// );
+
+// console.log('Getting position');
+
+// Promissfy
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    ////same as below
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then(pos => console.log(pos));
+
+//////////////////////////////////////////////
+
+const whereAmI = function () {
+  getPosition()
+    .then(pos => {
+      const {latitude :lat, longitude :lng } = pos.coords;
+      console.log(pos.coords);
+      return fetch(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+      );
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`Problem with Geocoding ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(`You are in ${data.city}, IN ${data.continent} Continent.`);
+
+      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Country not found ${response.status}`);
+
+      return response.json();
+    })
+    .then(data => rendringCountry(data[0]))
+    .catch(err => console.error(`${err.message}💥`));
+};
+btn.addEventListener('click', whereAmI);
