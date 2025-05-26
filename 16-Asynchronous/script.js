@@ -385,31 +385,106 @@ TEST COORDINATES 2: -33.933, 18.474
 GOOD LUCK 😀
 */
 
-const whereAmI = function (lat, lng) {
-  fetch(
-    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
-  )
-    .then(res => {
-      if (!res.ok) throw new Error(`Problem with Geocoding ${res.status}`);
-      return res.json();
-    })
-    .then(data => {
-      console.log(data);
-      console.log(`You are in ${data.city}, IN ${data.continent} Continent.`);
+// const whereAmI = function (lat, lng) {
+//   fetch(
+//     `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+//   )
+//     .then(res => {
+//       if (!res.ok) throw new Error(`Problem with Geocoding ${res.status}`);
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       console.log(`You are in ${data.city}, IN ${data.continent} Continent.`);
 
-      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
-    })
-    .then(response => {
-      if (!response.ok) throw new Error(`Country not found ${response.status}`);
+//       return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+//     })
+//     .then(response => {
+//       if (!response.ok) throw new Error(`Country not found ${response.status}`);
 
-      return response.json();
-    })
-    .then(data => rendringCountry(data[0]))
-    .catch(err => consorl.error(`${err.message}💥`));
+//       return response.json();
+//     })
+//     .then(data => rendringCountry(data[0]))
+//     .catch(err => consorl.error(`${err.message}💥`));
+// };
+
+// btn.addEventListener('click', function () {
+//   whereAmI(52.508, 13.381);
+//   whereAmI(19.037, 72.873);
+//   whereAmI(-33.933, 18.474);
+// });
+
+//////////////////////////////////////////////////////////////////////////////
+
+/*
+
+// The event loop in practice
+// micro task queue
+console.log('Test start');
+setTimeout(() => console.log('0 sec timmer'), 0);
+Promise.resolve('Resolved promise 1 ').then(res => console.log(res));
+
+Promise.resolve('Resolved promiss 2').then(res => {
+  for (let i = 1; i <= 1000000000; i++) {}
+  console.log(res);
+});
+
+console.log('Test end.');
+
+// result
+// test start=>
+// test end =>
+// resolved promise 1=>
+// 0 sec timmer
+
+*/
+
+///////////////////////////////////////////////////////
+
+// Building a simple promise
+// executor function
+// incoprate the ashrynchronous behaviour in promise
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lotter draw happening 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You win 💰💰');
+    } else {
+      reject('you lost your money 👎💢');
+    }
+  }, 2000);
+});
+
+// consumeing the promise
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// promisefying =>convert callback asynchronous behaviour to promise based
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
 };
 
-btn.addEventListener('click', function () {
-  whereAmI(52.508, 13.381);
-  whereAmI(19.037, 72.873);
-  whereAmI(-33.933, 18.474);
-});
+wait(1)
+  .then(() => {
+    console.log('1 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log(' 2 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log(' 3 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log(' 4 second passed');
+  });
+
+  // easy fullfilled and rejectied promiss imiditly 
+  // static method on promiss constructor
+  Promise.resolve('abc').then(res=> console.log(res));
+  Promise.reject(new Error('Problem!!')).catch(res=> console.error(res));
