@@ -134,6 +134,7 @@ const rendringError = function (message) {
 //////////////////////////////////////////
 
 //CONSUME  PROMISS
+/*
 
 // how it will return promiss
 
@@ -218,6 +219,8 @@ const getCountryData1 = function (country) {
 
 //HANDLING THE REJECT PROMISS // when user looses the internet connection
 
+
+
 const getsCountryData = function (country) {
   // country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
@@ -233,7 +236,7 @@ const getsCountryData = function (country) {
     .then(data => rendringCountry(data[0], 'neighbour'))
     // handling the reject promiss
     .catch(err => {
-      // console.error(`${err}`);
+      console.error(`${err}`);
       rendringError(
         `Something went wrong ${err.message} 💥💥💥💥💥.Try Agian!`
       );
@@ -248,7 +251,104 @@ const getsCountryData = function (country) {
 //   getsCountryData('india');
 // });
 
+*/
 
 ///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
+// Throwing error manually 404 error
 
+// const getCountryData1 = function (country) {
+//   // country 1
+//   fetch(`https://restcountries.com/v3.1/name/${country}`)
+//     .then(response => {
+//       // handling the error manually important
+//       // console.log(response);
+//       if (!response.ok) throw new Error(`Country not Found ${response.status}`);
+
+//       return response.json();
+//     })
+//     .then(data => {
+//       rendringCountry(data[0]);
+//       // const neighbour = data[0].borders?.[0];
+//       const neighbour = 'aassddff';
+//       if (!neighbour) return;
+//       // country 2
+//       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+//     })
+//     .then(response => {
+
+//       response.json();
+//       if (!response.ok) throw new Error(`Country not Found ${response.status}`);
+
+//     })
+//     .then(data => rendringCountry(data[0], 'neighbour'))
+//     // handling the reject promiss
+//     .catch(err => {
+//       // console.error(`${err} 💥💥💥`);
+//       rendringError(
+//         `Something went wrong ${err.message} 💥💥💥💥💥.Try Agian!`
+//       );
+//     })
+//     // execute definatlly catch return also promiss
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
+// btn.addEventListener('click', function () {
+//   getCountryData1('india');
+// });
+
+// getCountryData1('ssddhhjk');
+
+//////////////////////////////////////////////////////
+////// above the code is reference and create a getJSON method
+
+// making seprate function to hold the error and mesage 404
+const getJSON = function (url, errMsg = 'Something went wrong  ') {
+  return fetch(url).then(response => {
+    // manually handle the 404 error
+    if (!response.ok) throw new Error(`${errMsg} ${response.status}`);
+
+    return response.json();
+  });
+};
+
+const getCountryData1 = function (country) {
+  // country 1
+  getJSON(
+    `https://restcountries.com/v3.1/name/${country}`,
+    'Country not Found!'
+  )
+    .then(data => {
+      rendringCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+      // const neighbour = 'aassddff';
+      if (!neighbour) throw new Error('No Neighbour');
+      // country 2
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country not Found !'
+      );
+    })
+    .then(data => rendringCountry(data[0], 'neighbour'))
+    // handling the reject promiss
+    .catch(err => {
+      // console.error(`${err} 💥💥💥`);
+      rendringError(
+        `Something went wrong ${err.message} 💥💥💥💥💥.Try Agian!`
+      );
+    })
+    // execute definatlly catch return also promiss
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
+
+btn.addEventListener('click', function () {
+  getCountryData1('india');
+});
+
+// getCountryData1('ssddhhjk');
+getCountryData1('Australia');
