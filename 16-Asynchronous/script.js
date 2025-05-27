@@ -636,6 +636,51 @@ GOOD LUCK 😀
 
 /////////////////////////////////////////////////
 // complete with geolocation
+// async function
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
+
+// const whereAmI = async function () {
+//   //geolocation
+//   const pos = await getPosition();
+//   const { latitude: lat, longitude: lng } = pos.coords;
+//   // reverse geocoding
+//   const resGeo = await fetch(
+//     `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
+//   const dataGeo = await resGeo.json();
+//   // console.log(dataGeo);
+
+//   // country data
+//   const res = await fetch(`https://restcountries.com/v3.1/name/${dataGeo.countryName}`);
+
+//   const data = await res.json();
+//   // console.log(data);
+//   rendringCountry(data[0]);
+// };
+
+// btn.addEventListener('click', function () {
+//   whereAmI();
+// });
+
+//////////////////////////////////////////
+// ERROR HANDLING
+
+// let x =10;
+// const y =5;
+// y = 20;
+
+// try{
+//   let x =10;
+// const y =5;
+// y = 20;
+// }catch(err){
+//   alert(err);
+//   console.log(er.message);
+// }
+/////////////////////////////////////////////
 
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
@@ -645,20 +690,32 @@ const getPosition = function () {
 
 const whereAmI = async function () {
   //geolocation
-  const pos = await getPosition();
-  const { latitude: lat, longitude: lng } = pos.coords;
-  // reverse geocoding
-  const resGeo = await fetch(
-    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
-  const dataGeo = await resGeo.json();
-  // console.log(dataGeo);
+  try {
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+    // reverse geocoding
+    const resGeo = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+    );
+    // fetch doen't reject the 403 error 
+    if (!resGeo.ok) throw new Error('Problem getting location data!!');
+    const dataGeo = await resGeo.json();
+    // console.log(dataGeo);
 
-  // country data
-  const res = await fetch(`https://restcountries.com/v3.1/name/${dataGeo.countryName}`);
+    // country data
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${dataGeo.countryName}`
+    );
 
-  const data = await res.json();
-  // console.log(data);
-  rendringCountry(data[0]);
+    if (!res.ok) throw new Error('Problem getting country!!');
+
+    const data = await res.json();
+    // console.log(data);
+    rendringCountry(data[0]);
+  } catch (err) {
+    console.error(`${err} 💥💥`);
+    rendringError(`${err.message}💥💥`);
+  }
 };
 
 btn.addEventListener('click', function () {
