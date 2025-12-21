@@ -121,6 +121,32 @@
 
 // }
 
+// console.log(typeof foo);
+// function foo() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
