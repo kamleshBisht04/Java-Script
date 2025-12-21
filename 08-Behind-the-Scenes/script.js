@@ -4,50 +4,48 @@
 
 //  Global scoping             //  Function scoping (variable scop)               // Block Scoping
 
-function calAge(birthYear) {
-  const age = 2037 - birthYear;
-  console.log(firstName1);
-  // console.log(lastName);      // error not define
-  return age;
-}
-const firstName1 = 'kamlesh';
-calAge(1991);
+// function calAge(birthYear) {
+//   const age = 2037 - birthYear;
+//   console.log(firstName1);
+//   // console.log(lastName);      // error not define
+//   return age;
+// }
+// const firstName1 = 'kamlesh';
+// calAge(1991);
 
-//  step 2 scope chain in action
+// //  step 2 scope chain in action
 
-/*
-function calAge2(birthYear) {
-  const age = 2037 - birthYear;
+// function calAge2(birthYear) {
+//   const age = 2037 - birthYear;
 
-  function printAge() {
-    let output = ` ${firstName} ,your age is ${age} and your birthYear is  ${birthYear}`;
-    console.log(output);
-    
-    if(birthYear >=1981 && birthYear <= 1991){
-      //  creating a same name variable as a outer scope variable and access
-      const firstName ='Deepak'
-      var millenial = true;
-      const str =`oh ,and you'r a millenial, ${firstName}`
-      console.log(str);
-      output ='New OutPut';
+//   function printAge() {
+//     let output = ` ${firstName} ,your age is ${age} and your birthYear is  ${birthYear}`;
+//     console.log(output);
 
-      // function is also block scope
-      function add(a,b){
-        return a+b;
-      }
-    }
-    // console.log(add(1,2));// fuction is block scoped
-    console.log(millenial);
-    console.log(output);
-  }
-  printAge();
-  return age;
-}
-const firstName = 'kamlesh';
-const age = calAge2(1991);
+//     if (birthYear >= 1981 && birthYear <= 1991) {
+//       //  creating a same name variable as a outer scope variable and access
+//       const firstName = 'Deepak';
+//       var millenial = true;
+//       const str = `oh ,and you'r a millenial, ${firstName}`;
+//       console.log(str);
+//       output = 'New OutPut';
 
-console.log(age);
-*/
+//       // function is also block scope
+//       function add(a, b) {
+//         return a + b;
+//       }
+//     }
+//     // console.log(add(1,2));// fuction is block scoped
+//     console.log(millenial);
+//     console.log(output);
+//   }
+//   printAge();
+//   return age;
+// }
+// const firstName = 'kamlesh';
+// const age = calAge2(1991);
+
+// console.log(age);
 
 // var is function scope and const and let is block scope
 
@@ -60,7 +58,7 @@ console.log(age);
 
 // const myName = 'Jonas';
 
-// (let job = 'teacher';)
+// let job = 'teacher';
 // if(myName === 'Jonas'){
 //   console.log(`Jonas is a ${ job} `);
 //   const age = 2037-1989;
@@ -78,75 +76,76 @@ console.log(age);
 
 // variable
 
-/*
+// console.log(me);       //undefined
+// // console.log(job);  //reference error // TDZ
+// // console.log(year);
 
-console.log(me);       //undefined
-// console.log(job);  //reference error // TDZ
-// console.log(year);
-
-var me = 'jonas';
-let job ='Teacher'; 
-const year = 1991;
+// var me = 'jonas';
+// let job ='Teacher'; 
+// const year = 1991;
 
 
- // Functions 
+//  // Functions 
+
+// console.log(addDecl(5,6)); // hoiested
+// // console.log(addExpr(5,2));
+// // console.log(addArrow(5,5));
+// // console.log(addArrow);
 
 
-console.log(addDecl(5,6)); // hoiested
-// console.log(addExpr(5,2));
-// console.log(addArrow(5,5));
-// console.log(addArrow);
+// function addDecl(a,b){
+//   return a+b;
+// }
 
 
+// const addExpr = function(a,b){
+//   return a+b;
+// }
 
-function addDecl(a,b){
-  return a+b;
-}
-
-
-const addExpr = function(a,b){
-  return a+b;
-}
-
-var addArrow =(a,b)=> a+b;
+// var addArrow =(a,b)=> a+b;
 
 
-// Example 
+// // Example 
 
-console.log(numProducts); // because of Hoiesting 
+// console.log(numProducts); // because of Hoiesting 
 
-if(!numProducts) deleteShoppingCart();
+// if(!numProducts) deleteShoppingCart();
 
-var numProducts =10;
+// var numProducts =10;
 
-function deleteShoppingCart(){
-  console.log('All products deleted!');
-}
+// function deleteShoppingCart(){
+//   console.log('All products deleted!');
+// }
 
 
 
-var x= 1;
-let y =2;
-let z =3;
+// var x= 1;
+// let y =2;
+// const z =3;
 
-console.log(" check window  window is the global object of java script in the brower ");
+// console.log(" check window  window is the global object of java script in the brower ");
 
-console.log(x=== window.x);
-console.log(x===window.y);
-console.log(x===window.z);
+// console.log(x=== window.x);
+// console.log(x===window.y);
+// console.log(x===window.z);
 
-
-*/
 ///////////////////////////////////////////
 
 // // The this Keyword in Practice
 //point the current objects and owner of the function
 //arrow function don't have this keyword
 
-/*
+
 
 console.log('this is global window object');
 console.log(this); // global window object 
+
+
+function calAges(birthYear){    
+  console.log(2037-birthYear);
+  console.log(this);
+}
+calAges(1991);
 
 // Regular function  this undefine
 const calAge = function(birthYear){    
@@ -189,7 +188,7 @@ const f = student.calAge;     // function copy
 // f();
 
 
-*/
+
 
 /////////////  Regular function  vs     Arrow function
 // Arrow function don't have his this keyword
@@ -198,7 +197,7 @@ const f = student.calAge;     // function copy
 // Regular Functions vs. Arrow Functions
 // var firstName = 'Matilda';
 
-/*
+
 
 const jonas = {
   firstName: 'Jonas',
@@ -243,76 +242,76 @@ addExpr(2,3);
 addExpr(2,5,6,13);
 
 var addArrow = (a,b)=>{
-  console.log(arguments);
+  // console.log(arguments);
   return a+b;
 };
 
 addArrow(5,6,7);
 console.log(addArrow(2, 3));
 
-*/
+
 
 ///////////////////////////////////////
 // Objects vs. primitives
 
 // primitive
 
-let age = 30;
-const oldAge = age;
-age = 31;
-console.log(`age  :  ${age}`);
-console.log(`old age   :  ${oldAge}`);
+// let age = 30;
+// const oldAge = age;
+// age = 31;
+// console.log(`age  :  ${age}`);
+// console.log(`old age   :  ${oldAge}`);
 
-let lastName = 'Rawat';
-let oldLastName = lastName;
-lastName = 'Bisht';
-console.log(lastName, oldLastName);
+// let lastName = 'Rawat';
+// let oldLastName = lastName;
+// lastName = 'Bisht';
+// console.log(lastName, oldLastName);
 
-// Reference type
+// // Reference type
 
-const student1 = {
-  firstName: 'kamlesh',
-  lastName: 'Bisht',
-  age: 29,
-};
+// const student1 = {
+//   firstName: 'kamlesh',
+//   lastName: 'Bisht',
+//   age: 29,
+// };
 
-const student2 = student1;
-student2.age = 32;
-student2.lastName = 'Rawat';
-console.log('student 1 : ', student1);
-console.log('student 2 : ', student2);
+// const student2 = student1;
+// student2.age = 32;
+// student2.lastName = 'Rawat';
+// console.log('student 1 : ', student1);
+// console.log('student 2 : ', student2);
 
-// //  student2 ={};  we cant do it.
+// // //  student2 ={};  we cant do it.
 
-/***  Copying the object but only shallow copy made */
+// /***  Copying the object but only shallow copy made */
 
-const student = {
-  firstName: 'kamlesh',
-  lastName: 'Bisht',
-  age: 28,
-  city: 'Ranikhet',
-  friends: ['Deepak', 'Ajay', 'Raj', 'Sanjay', 'sana'],
-};
+// const student = {
+//   firstName: 'kamlesh',
+//   lastName: 'Bisht',
+//   age: 28,
+//   city: 'Ranikhet',
+//   friends: ['Deepak', 'Ajay', 'Raj', 'Sanjay', 'sana'],
+// };
 
-console.log(student);
+// console.log(student);
 
-// When we copy the object we are not preserve the old object
-const newStudent = student;
-newStudent.age = 22;
-newStudent.firstName = 'Ajay';
-console.log(newStudent);
-console.log(student);
+// // When we copy the object we are not preserve the old object
+// const newStudent = student;
+// newStudent.age = 22;
+// newStudent.firstName = 'Ajay';
+// console.log(newStudent);
+// console.log(student);
 
-const newStudent1 = Object.assign({}, student);
-newStudent1.firstName = 'Ajay';
-newStudent1.lastName = 'kumar';
-newStudent1.age = 27;
-console.log(newStudent1);
-console.log(student);
+// const newStudent1 = Object.assign({}, student);
+// newStudent1.firstName = 'Ajay';
+// newStudent1.lastName = 'kumar';
+// newStudent1.age = 27;
+// console.log(newStudent1);
+// console.log(student);
 
-newStudent.friends.push('Dev');
-console.log(newStudent1);
-console.log(newStudent);
+// newStudent.friends.push('Dev');
+// console.log(newStudent1);
+// console.log(newStudent);
 
 /*
 

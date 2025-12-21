@@ -361,6 +361,7 @@ console.log(studentInfo.calAge1());
 // III way to acess it  creating new property
 
 /*
+//  creating the new property as age 
 
 const studentInfo = {
   firstName: "Deepak",
@@ -552,7 +553,7 @@ console.log(studentInfo.getSummery());
 //  }
 
 
-// cal bill tip problem using array and loop cclculate tips and total 
+// cal bill tip problem using array and loop calculate tips and total 
 
 
 

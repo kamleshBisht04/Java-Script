@@ -61,6 +61,7 @@ document.querySelector('.Again').addEventListener('click', function () {
   document.querySelector('h1').textContent = 'Guess My Number !';
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = ' ';
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
 });
 
 /*

@@ -212,7 +212,7 @@ operate presedence important
 /* Truthy and false value 
 
 5 false ===>
-0 ,'' , undifine ,null,nun;
+0 ,'' , undifine ,null,NAN;
 */
 // console.log(Boolean(0));
 // console.log(Boolean(null));
