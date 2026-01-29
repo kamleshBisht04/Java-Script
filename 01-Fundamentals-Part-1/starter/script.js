@@ -39,7 +39,7 @@ upper case letter are reserved for constant .
   number,String,Boolean,undefine ,null,symbol ,bigInt
   dynamic typeing
   bigInt for larger values in Es2020 
-  Typeof operator thats tals the type of variable
+  Typeof operator thats tells the type of variable
   type of null ===> object
 */
 
@@ -56,6 +56,7 @@ upper case letter are reserved for constant .
 // console.log(firstName);
 // console.log(isMarried);
 // console.log(isAdult);
+// console.log(jobs);
 // console.log(typeof money);
 // console.log(typeof radius);
 // console.log(typeof isAdult);
@@ -79,7 +80,7 @@ upper case letter are reserved for constant .
      var is old way or open for all 
      use always const.
 
-     let is block scope or var is function scope
+     let or const is block scope or var is function scope
 */
 
 //  const birthYear =1996;
@@ -212,7 +213,7 @@ operate presedence important
 /* Truthy and false value 
 
 5 false ===>
-0 ,'' , undifine ,null,NAN;
+0 ,'' , undifine ,null,NAN,false;
 */
 // console.log(Boolean(0));
 // console.log(Boolean(null));

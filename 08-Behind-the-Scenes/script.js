@@ -53,8 +53,8 @@
 
 // make some type of variable accessible /usable in the code before they are actually declared 'variabe lifted to the top of their scope'
 
-// let and const is not hoisted  (TDZ Tempral Death Zone)
-// var is hoiested to  undefine
+// let and const is  hoisted  (TDZ Tempral Death Zone) unlike 
+// var is hoiested to  undefine it aslo insilize to undefine
 
 // const myName = 'Jonas';
 
@@ -77,8 +77,8 @@
 // variable
 
 // console.log(me);       //undefined
-// // console.log(job);  //reference error // TDZ
-// // console.log(year);
+// console.log(job);  //reference error // TDZ
+// console.log(year);
 
 // var me = 'jonas';
 // let job ='Teacher'; 
@@ -119,15 +119,15 @@
 
 
 
-// var x= 1;
-// let y =2;
-// const z =3;
+var x= 1;
+let y =2;
+const z =3;
 
-// console.log(" check window  window is the global object of java script in the brower ");
+console.log(" check window  window is the global object of java script in the brower ");
 
-// console.log(x=== window.x);
-// console.log(x===window.y);
-// console.log(x===window.z);
+console.log(x=== window.x);
+console.log(x===window.y);
+console.log(x===window.z);
 
 ///////////////////////////////////////////
 
@@ -164,15 +164,15 @@ const calAgeArrowF = (birthYear) =>{
 calAgeArrowF(1991);
 
 // refer to current onject  
-const student={
-  firstName : 'kamlesh',
-  lastName : 'bisht',
-  year : 1991,
-  calAge : function(){
-    return 2037-this.year;
-  }
-}
-console.log(student.calAge());
+// const student={
+//   firstName : 'kamlesh',
+//   lastName : 'bisht',
+//   year : 1991,
+//   calAge : function(){
+//     return 2037-this.year;
+//   }
+// }
+// console.log(student.calAge());
 
 
 // method borrowing from other function 
@@ -195,12 +195,12 @@ const f = student.calAge;     // function copy
 
 ///////////////////////////////////////
 // Regular Functions vs. Arrow Functions
-// var firstName = 'Matilda';
+var firstName = 'jonas';
 
 
 
 const jonas = {
-  firstName: 'Jonas',
+  firstName: 'kamlesh',
   year: 1991,
   calcAge: function () {
     // console.log(this);
@@ -285,15 +285,15 @@ console.log(addArrow(2, 3));
 
 // /***  Copying the object but only shallow copy made */
 
-// const student = {
-//   firstName: 'kamlesh',
-//   lastName: 'Bisht',
-//   age: 28,
-//   city: 'Ranikhet',
-//   friends: ['Deepak', 'Ajay', 'Raj', 'Sanjay', 'sana'],
-// };
+const student = {
+  firstName: 'kamlesh',
+  lastName: 'Bisht',
+  age: 28,
+  city: 'Ranikhet',
+  friends: ['Deepak', 'Ajay', 'Raj', 'Sanjay', 'sana'],
+};
 
-// console.log(student);
+console.log(student);
 
 // // When we copy the object we are not preserve the old object
 // const newStudent = student;

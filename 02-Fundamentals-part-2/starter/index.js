@@ -1,6 +1,6 @@
 "using strict";
 
-// let hasDriversLicense = false;
+// let hasDriversLicense = false; 
 // const passTest =true;
 
 // if(passTest)hasDriverLicense=true;
@@ -272,7 +272,7 @@ const kamlesh = {
   friends: ["Ajay", "vijay", "jay", "Sanjay"],
 };
 
-// Acess via dot noatation (operator)
+// Access via dot noatation (operator)
 //property value pair object leteral syntex .order don't matter
 
 console.log(kamlesh);
@@ -290,7 +290,7 @@ console.log(kamlesh["lastName"]);
 console.log(kamlesh["age"]);
 console.log(kamlesh["job"]);
 
-// breaket notation work as a expression // compute first and use
+// braket notation work as a expression // compute first and use
 
 const nameKey = "Name";
 console.log(kamlesh["first" + nameKey]);
